@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proactive-monitoring
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: proactive-monitoring
+  template:
+    metadata:
+      labels:
+        app: proactive-monitoring
+    spec:
+      containers:
+      - name: proactive-monitoring
+        image: your-repo/proactive-monitoring:latest
+        ports:
+        - containerPort: 5000
